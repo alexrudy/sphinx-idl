@@ -23,6 +23,8 @@ from sphinx.locale import l_, _
 from sphinx.util.docfields import GroupedField, TypedField, Field
 from sphinx.util.nodes import make_refnode
 
+__all__ = ['setup', 'IDLDomain', 'IDLFunction', 'IDLProgram']
+
 idl_sig_re = re.compile(
     r'''^ (?:(pro|function)\s)?     # pro/function specifier
           ([\w_]*)           # pro/function name

@@ -22,6 +22,8 @@ from sphinx.ext.autosummary import autosummary_table
 from .parser import IDLParser, IDLFunction, IDLProgram
 from .domain import IDLDomain
 
+__all__ = ['setup', 'IDLAutoFile', 'IDLAutoPath']
+
 class IDLAutoBase(Directive):
     """A base class for IDLAuto tools"""
     
