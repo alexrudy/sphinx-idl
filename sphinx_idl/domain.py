@@ -28,7 +28,7 @@ idl_sig_re = re.compile(
           ([\w_]*)           # pro/function name
           (?:,?\s*(.*)            # optional: arguments
           )? $                          # and nothing more
-          ''', re.VERBOSE, re.IGNORECASE)
+          ''', re.VERBOSE | re.IGNORECASE)
 
 idl_struct_re = re.compile(
   r'''^(?:([\w_]*)\s*=)?   # structure variable identifier
