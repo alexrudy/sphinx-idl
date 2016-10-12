@@ -70,7 +70,7 @@ class IDLObjectBase(ObjectDescription):
             inv[fullname] = (self.env.docname, self.objtype)
         
         indextext = "{1} ({0})".format(self.objtype, fullname)
-        self.indexnode['entries'].append(('single', indextext, fullname, ''))
+        self.indexnode['entries'].append(('single', indextext, fullname, '', None))
         
     def after_content(self):
         if self.parentname_set:
