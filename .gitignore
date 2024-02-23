@@ -1,3 +1,6 @@
 *.egg-info
 *.pyc
 .ipynb_checkpoints/
+_skbuild/
+build/
+dist/

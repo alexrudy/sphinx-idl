@@ -13,13 +13,13 @@ from __future__ import (absolute_import, unicode_literals, division,
 import re
 import itertools
 # from docutils import nodes
-from docutils.parsers.rst import directives
+from docutils.parsers.rst import directives, Directive
 from sphinx import addnodes
-from sphinx.directives import ObjectDescription, Directive
+from sphinx.directives import ObjectDescription
 from sphinx.roles import XRefRole
 from sphinx.domains import Domain, ObjType
 from sphinx.domains.python import _pseudo_parse_arglist
-from sphinx.locale import l_, _
+from sphinx.locale import _
 from sphinx.util.docfields import GroupedField, TypedField, Field
 from sphinx.util.nodes import make_refnode
 
@@ -84,7 +84,7 @@ class IDLStruct(IDLObjectBase):
     display_prefix = None
     
     doc_field_types = [
-        TypedField('parameter', label=l_('Parameters'),
+        TypedField('parameter', label=_('Parameters'),
                    names=('param', 'parameter',),
                    typerolename='obj', typenames=('paramtype', 'type'),),
     ]
@@ -181,13 +181,13 @@ class IDLObject(IDLObjectBase):
     display_prefix = None
     
     doc_field_types = [
-        TypedField('parameter', label=l_('Parameters'),
+        TypedField('parameter', label=_('Parameters'),
                    names=('param', 'parameter', 'arg', 'argument',),
                    typerolename='obj', typenames=('paramtype', 'type'),),
-        TypedField('keyword', label=l_('Keywords'),
+        TypedField('keyword', label=_('Keywords'),
                    names=('keyword', 'kwarg', 'kwparam'),
                    typerolename='obj', typenames=('paramtype', 'type'),),
-       GroupedField('flag', label=l_('Flags'),
+       GroupedField('flag', label=_('Flags'),
                   names=('flag', 'switch'),),
     ]
     
@@ -222,7 +222,7 @@ class IDLProgram(IDLObject):
     """An IDL Program"""
     
     doc_field_types = IDLObject.doc_field_types + [
-        TypedField('returnvariable', label=l_('Return Variables'), rolename='obj',
+        TypedField('returnvariable', label=_('Return Variables'), rolename='obj',
                names=('var', 'ivar', 'cvar'),
                typerolename='obj', typenames=('vartype',),
                can_collapse=True),
@@ -232,9 +232,9 @@ class IDLProgram(IDLObject):
 class IDLFunction(IDLObject):
     
     doc_field_types = IDLObject.doc_field_types + [
-        Field('returnvalue', label=l_('Returns'), has_arg=False,
+        Field('returnvalue', label=_('Returns'), has_arg=False,
               names=('returns', 'return')),
-        Field('returntype', label=l_('Return type'), has_arg=False,
+        Field('returntype', label=_('Return type'), has_arg=False,
               names=('rtype',)),
     ]
     
@@ -262,10 +262,10 @@ class IDLDomain(Domain):
     label = 'IDL'
     
     object_types = {
-        'function': ObjType(l_('function'), 'func'),
-        'pro':   ObjType(l_('pro'),'pro'),
-        'structure': ObjType(l_('structure'), 'struct'),
-        'member': ObjType(l_('member'), 'member')
+        'function': ObjType(_('function'), 'func'),
+        'pro':   ObjType(_('pro'),'pro'),
+        'structure': ObjType(_('structure'), 'struct'),
+        'member': ObjType(_('member'), 'member')
     }
 
     directives = {
@@ -308,7 +308,7 @@ class IDLDomain(Domain):
         return None
     
     def get_objects(self):
-        for refname, (docname, type) in self.data['objects'].iteritems():
+        for refname, (docname, type) in self.data['objects'].items():
             yield (refname, refname, type, docname, refname, 1)
 
 def setup(app):
