@@ -99,9 +99,9 @@ class IDLAutoBase(Directive):
     def handle_idl_object_table(self, obj):
         """docstring for handle_idl_object_table"""
         if obj.kind == 'pro':
-            signature_line = ":pro:`{}`".format(obj.name)
+            signature_line = ":idl:pro:`{}`".format(obj.name)
         elif obj.kind == 'function':
-            signature_line = ":func:`{}`".format(obj.name)
+            signature_line = ":idl:func:`{}`".format(obj.name)
         try:
             summary_line = obj.docstring.strip().splitlines()[0]
         except IndexError:
