@@ -18,11 +18,6 @@ templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 primary_domain = "idl"
 
-rst_epilog = """
-
-.. |TB struct| replace:: The test bench state structure (see :func:`get_test_bench`)
-
-"""
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
