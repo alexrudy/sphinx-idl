@@ -114,7 +114,7 @@ class IDLParser(object):
         lineiter = iter(lines)
         for line in lineiter:
             while continue_line.search(line):
-                line = line.rstrip("$\n\r") + lineiter.next()
+                line = line.rstrip("$\n\r") + lineiter.__next__()
             yield line
     
     def parse_single(self, line):

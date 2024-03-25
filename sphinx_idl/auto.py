@@ -54,12 +54,12 @@ class IDLAutoBase(Directive):
             include_file = io.FileInput(source_path=path,
                                         encoding=encoding,
                                         error_handler=e_handler)
-        except UnicodeEncodeError, error:
+        except UnicodeEncodeError as error:
             raise self.severe(u'Problems with "%s" directive path:\n'
                               'Cannot encode input file path "%s" '
                               '(wrong locale?).' %
                               (self.name, SafeString(path)))
-        except IOError, error:
+        except IOError as error:
             raise self.severe(u'Problems with "%s" directive path:\n%s.' %
                       (self.name, ErrorString(error)))
         return include_file

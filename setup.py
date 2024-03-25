@@ -19,7 +19,7 @@ This extension provides an IDL domain for sphinx
 requires = ['Sphinx>=1.0']
 
 setup(
-    name='sphinx_idl',
+    name='sphinx-idl',
     version='0.1',
     license='BSD',
     author='Alex Rudy',
