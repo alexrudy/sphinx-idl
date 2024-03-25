@@ -286,7 +286,7 @@ class IDLDomain(Domain):
     }
 
     def clear_doc(self, docname):
-        for fullname, (fn, _) in self.data['objects'].items():
+        for fullname, (fn, _) in list(self.data['objects'].items()):
             if fn == docname:
                 del self.data['objects'][fullname]
 
