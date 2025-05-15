@@ -12,7 +12,7 @@ from sphinx import addnodes
 from sphinx.directives import ObjectDescription
 from sphinx.roles import XRefRole
 from sphinx.domains import Domain, ObjType
-from sphinx.domains.python import _pseudo_parse_arglist
+from sphinx.domains.python._object import _pseudo_parse_arglist
 from sphinx.locale import _
 from sphinx.util.docfields import GroupedField, TypedField, Field
 from sphinx.util.nodes import make_refnode

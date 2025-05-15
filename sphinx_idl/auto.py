@@ -40,7 +40,6 @@ class IDLAutoBase(Directive):
             source_dir = os.path.dirname(os.path.abspath(source))
             path = os.path.normpath(os.path.join(source_dir, path))
         path = utils.relative_path(None, path)
-        path = nodes.reprunicode(path)
         encoding = self.options.get("encoding", self.state.document.settings.input_encoding)
         e_handler = self.state.document.settings.input_encoding_error_handler
         try:
@@ -163,7 +162,6 @@ class IDLAutoPath(IDLAutoBase):
         if not self.options.get("absolute", True):
             path = os.path.normpath(os.path.join(source_dir, path))
         path = utils.relative_path(None, path)
-        path = nodes.reprunicode(path)
         globpath = self.options.get("glob", "*.pro")
         return os.path.join(path, globpath)
 
