@@ -9,7 +9,6 @@
 import re
 import abc
 
-
 CompiledRE = type(re.compile(""))
 
 
